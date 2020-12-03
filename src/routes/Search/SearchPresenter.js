@@ -38,7 +38,7 @@ const SearchPresenter = ({
       </Helmet>
       <Form onSubmit={handleSubmit}>
         <Input
-          placeholder="Search for moves or tv shows"
+          placeholder="Search for movies or tv shows"
           value={searchTerm}
           onChange={updateTerm}
         />
@@ -68,7 +68,7 @@ const SearchPresenter = ({
 
           {tvResults && tvResults.length > 0 && (
             <Section title="Tv shows Results">
-              {tvResults.map((show) => {
+              {tvResults.map((show) => (
                 <Poster
                   key={show.id}
                   id={show.id}
@@ -79,8 +79,8 @@ const SearchPresenter = ({
                     show.first_air_date && show.first_air_date.substring(0, 4)
                   }
                   isMovie={false}
-                />;
-              })}
+                />
+              ))}
             </Section>
           )}
           {error && <Message color={"e74c3c"} text={error} />}
